@@ -20,10 +20,14 @@ plus.sort(reverse=True)
 if len(plus)!=0:
     for p in range(len(plus)):
         if len(plus)==1:
-            res+=arr[p]
+            res+=plus[p]
         else:
-            res+=max((arr[p]+arr[p+1]),(arr[p]*arr[p+1]))
-            del arr[p]
-            del arr[p+1]
+            res+=max((plus[p]+plus[p+1]),(plus[p]*plus[p+1]))
+            del plus[p]
+            del plus[p+1]
             p+=2
 
+if len(minus)>=2:
+    for i in range(len(minus)):
+        res+=(minus[i]*minus[i+1])
+        i+=2
