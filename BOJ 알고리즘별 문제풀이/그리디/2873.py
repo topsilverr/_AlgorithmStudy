@@ -16,3 +16,14 @@ for num in arr:
     else:
         plus.append(num)
 
+plus.sort(reverse=True)
+if len(plus)!=0:
+    for p in range(len(plus)):
+        if len(plus)==1:
+            res+=arr[p]
+        else:
+            res+=max((arr[p]+arr[p+1]),(arr[p]*arr[p+1]))
+            del arr[p]
+            del arr[p+1]
+            p+=2
+
