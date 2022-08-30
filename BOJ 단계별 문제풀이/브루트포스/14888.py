@@ -24,15 +24,16 @@ for x in range(0,4):
             arr.append('/')
 
 result = list(permutations(arr,len(arr))) # 집합을 리스트 형식으로 변경 <= permutaions 사용하면 집합으로 반환됨
-q=deque(result) # 큐를 사용하여 하나씩 꺼내서 계산
+q=deque(result) # 큐를 사용하여 연산자의 조합을 하나씩 꺼내서 계산
 
+# 가장 작은 값과 max로 비교하면 무슨 값이든 10억보단 클 것이고, 가장 큰 값과 min으로 비교하면 무슨 값이든 10억보단 작을 것 => 아래와 같이 설정
 max_result=-1e9
 min_result=1e9
 
 while q:
     num=q.popleft() # 가능한 연산자 순열 수
-    res=a[0]
-    for i in range(1,len(a)):
+    res=a[0] # 가장 처음 숫자를 res에 넣어둠
+    for i in range(1,len(a)): # 숫자를 하나씩 꺼내서 차례대로 계산
         if num[i-1]=='+':
             res+=a[i]
         elif num[i-1]=='-':
