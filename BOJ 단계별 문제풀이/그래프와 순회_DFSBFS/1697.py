@@ -16,7 +16,7 @@ def bfs(n, k):
         for i in range(3):
             nx = n + dx[i]
             if nx <= -1 or nx > 100000:
-                continue
+                break
             elif nx == k:
                 return time
             else:
