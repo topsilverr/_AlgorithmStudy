@@ -1,6 +1,5 @@
 import sys
 
-
 def binary_search(list, target, start, end):
     if start > end:
         return None
