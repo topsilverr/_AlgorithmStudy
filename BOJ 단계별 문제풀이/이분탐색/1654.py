@@ -1,14 +1,16 @@
 def bin_search(arr,target,start,end):
+    res = 0
     while start <= end :
         mid = (start+end) // 2
-        res = 0
+        cnt = 0
         for l in arr :
-            res += l // mid
-        if res >= target:
+            cnt += l // mid
+        if cnt >= target:
+            res = mid
             start = mid + 1
         else:
             end = mid - 1
-    return end
+    return res
 
 
 

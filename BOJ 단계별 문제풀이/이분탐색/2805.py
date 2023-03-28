@@ -6,7 +6,7 @@ def bin_search(arr,target,start,end):
         for t in arr:
             if t-mid >= 0:
                 cnt = cnt+(t-mid)
-        if target >= cnt :
+        if target > cnt :
             end = mid - 1
         else:
             res = mid
