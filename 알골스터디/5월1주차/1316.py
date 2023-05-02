@@ -18,8 +18,8 @@ for i in range(n):
         elif w != now and w in chk:
             tag = False
             break
-        elif w == now and w not in chk:
-            chk.append(w)
+        # elif w == now and w not in chk:
+            # chk.append(w)
         now = w
 
     if tag:
