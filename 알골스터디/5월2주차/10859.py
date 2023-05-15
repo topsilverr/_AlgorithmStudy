@@ -1,42 +1,44 @@
 import math
-n = int(input())
-n_list = list(str(n))
+n = input()
 
-reverse_n = []
 
-def is_prime_number(num):
-    if num == 1:
+
+def is_prime_number(x):
+    if x == 2:
+        return True
+    if x < 2 or x % 2 == 0:
         return False
-    else:
-        for i in range(2, int(num ** 0.5) + 1):
-            if num % i == 0:
-                return False
+    m = int(x ** 0.5) + 1
+    for i in range(3, m, 2):
+        if x % i == 0:
+            return False
+        i += 2
     return True
 
 
-def reverse(n_list):
-    for p in n_list:
-        if p == '0' or p == '2' or p == '5' or p == '8':
-            reverse_n.append(p)
-        elif p == '1':
-            reverse_n.append(p)
+def reverse(n):
+    reverse_n = ""
+    for p in n:
+        if p == '0' or p == '2' or p == '5' or p == '8' or p == '1':
+            reverse_n+=p
         elif p =='6':
-            reverse_n.append('9')
+            reverse_n+='9'
         elif p == '9':
-            reverse_n.append('6')
+            reverse_n+='6'
         else:
-            print('no')
+            return False
     reverse = reverse_n[::-1]
     return reverse
 
-if(is_prime_number(n)):
-    res = reverse(n_list)
+if(is_prime_number(int(n))):
+    res = reverse(n)
     if (res):
-        res = ''.join(res)
-        reverse_int = int(res)
-        if (is_prime_number(reverse_int)):
+        res = int(res)
+        if (is_prime_number(res)):
             print("yes")
         else:
             print("no")
+    else:
+        print("no")
 else:
     print("no")
