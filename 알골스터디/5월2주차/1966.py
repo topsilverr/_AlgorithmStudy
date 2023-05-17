@@ -20,3 +20,4 @@ for _ in range(t):
             deq.popleft()
             if tar_list.popleft()== m:
                 print(cnt)
+                break
