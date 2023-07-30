@@ -9,18 +9,18 @@ l,r = 1, 1
 res = []
 while l <= r:
     chk = r**2 - l**2
-    if chk == g:
-        res.append(r)
-        l += 1
-        r = l
-    elif chk < g:
+    if r - l == 1 and chk > g:
+        break
+    if chk < g:
         r += 1
     elif chk > g:
         l += 1
-        r = l
-    elif chk > 100000:
-        print(-1)
-        break
+    else:
+        res.append(r)
+        r+=1
 
-res.sort()
-print(res)
+if res:
+    for i in range(len(res)):
+        print(res[i])
+else:
+    print(-1)
