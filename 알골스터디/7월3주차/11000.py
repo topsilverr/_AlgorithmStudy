@@ -1,29 +1,28 @@
-import sys
+# heapq 사용
+import sys,heapq
 
 input = sys.stdin.readline
 
 n = int(input())
 
 cls = []
-res = []
+endTime = []
 
 for _ in range(n):
     cls.append(list(map(int, input().split())))
 
-cls.sort(key=lambda x: x[0])
-cls.sort(key=lambda x: x[1])
+cls.sort()
 
-buf = cls[0][1]
-res_li = []
+# 가장 작은 값이 index 0번에 저장됨
+heapq.heappush(endTime,cls[0][1])
+res = 1 # 전체 강의실 개수
 
-res = 1
-
-for i in range(1, n):
-    if buf <= cls[i][0]:
-        buf = cls[i][1]
-        res_li.append(cls[i][1])
+for i in range(1,n):
+    if cls[i][0] < endTime[0]:
+        res+=1
+        heapq.heappush(endTime,cls[i][1])
     else:
-        res += 1
-        buf = cls[i][1]
-print(res)
+        heapq.heappop(endTime) # index 0번 pop, 즉 삭제
+        heapq.heappush(endTime,cls[i][1])
 
+print(res)
