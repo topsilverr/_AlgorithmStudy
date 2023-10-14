@@ -1,0 +1,18 @@
+import sys
+import heapq
+
+nums = int(input())
+heap = []
+
+for _ in range(nums):
+    num = int(sys.stdin.readline())
+    if num != 0:
+        heapq.heappush(heap, num)
+    else:
+        try:
+            print(heapq.heappop(heap))
+        except:
+            print(0)
+
+# heapq -> 최소힙
+# 최대힙 -> heapq.heappush(max_heap,(-item,item))
